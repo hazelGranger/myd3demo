@@ -1,0 +1,77 @@
+
+{
+	"name": "test",
+	"children" :[
+		{
+			"name": "a",
+			"color": "#E8001F",
+			"children": [
+				{
+					"name": "a1",
+					"color": "#FEDE00"
+				},
+				{
+					"name": "a2",
+					"color": "#3D9141"
+				},
+				{
+					"name": "a2"
+				},
+				{
+					"name": "a2"
+				}
+			]
+		},
+		{
+			"name": "b",
+			"children": [
+				{
+					"name": "b1"
+				},
+				{
+					"name": "b2"
+				},
+				{
+					"name": "a2"
+				},
+				{
+					"name": "a2"
+				}
+			]
+		},
+		{
+			"name": "c",
+			"children": [
+				{
+					"name": "b1"
+				},
+				{
+					"name": "b2"
+				},
+				{
+					"name": "a2"
+				},
+				{
+					"name": "a2"
+				}
+			]
+		},
+		{
+			"name": "d",
+			"children": [
+				{
+					"name": "b1"
+				},
+				{
+					"name": "b2"
+				},
+				{
+					"name": "a2"
+				},
+				{
+					"name": "a2"
+				}
+			]
+		}
+	]
+}
