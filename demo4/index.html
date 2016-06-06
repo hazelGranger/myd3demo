@@ -105,8 +105,13 @@ d3.json("eufa.json", function(error, root) {
 
 	var groups = svg.selectAll(".group")
 					.on("mouseover",function(d){
-						console.log('123');
-						d3.select(this).style("opacity",0.3)
+						var hoverGroup = this;
+						//console.log('123');
+						d3.selectAll(".group")
+						  .transition()
+						  .style("opacity",function(){
+						  	return (this === hoverGroup)? 1 : 0.3;
+						  })
 					})
 
 				  
