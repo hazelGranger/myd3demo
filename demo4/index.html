@@ -6,7 +6,9 @@
   </head> 
 
 <style>
-
+	body{
+		background-color: #1E1E1E;
+	}
 </style>
 <body>
 <script src="/d3.v3.min.js"></script>
@@ -26,6 +28,7 @@ var partition = d3.layout.partition()
 				.sort(null)
 				.size([2 * Math.PI, radius * radius])
 				.value(function(d) { return 1; });
+
 				
 var arc = d3.svg.arc()
 			.startAngle(function(d) { return d.x; })
@@ -34,41 +37,77 @@ var arc = d3.svg.arc()
 			.outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
 
 
-d3.json("city_tree.json", function(error, root) {
+d3.json("eufa.json", function(error, root) {
 
 	if(error)
 		console.log(error);
 	console.log(root);
 
 	var nodes = partition.nodes(root);
+
 	var links = partition.links(nodes);
 
-	console.log(nodes);
 
+	console.log(nodes);
+	//console.log(svg.selectAll("g"),"1");
 	var arcs = svg.selectAll("g")
 				  .data(nodes)
 				  .enter().append("g")
 				  .attr("class",function(d,i){
-			return i;
+			return (d.className ? d.className: i);
 		});
+
+	// var groups = svg.selectAll("g")
+	// 				.data(groupNodes)
+	// 				.enter().append("g")
+	// 				.attr("class",function(d){
+	// 					return ".group-team ";
+	// 				});
+
+	// var team = groups.append("g")
+	// 				 .attr()
+
 	
 	arcs.append("path")
-		.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
+		.attr("display", function(d) {console.log(d.depth); return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
-		.style("stroke", "#fff")
-		.style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-		.on("mouseover",function(d){
-			d3.select(this)
-				.style("fill","yellow");
-		})
-		.on("mouseout",function(d){
-			d3.select(this)
-				.transition()
-				.duration(200)
-				.style("fill", function(d) { 
-					return color((d.children ? d : d.parent).name); 
-				});
-		});
+		.style("stroke", "rgb(202, 202, 202)")
+		.style("fill", function(d) { return (d.color ? d.color: "#aaa"); });
+		// .on("mouseover",function(d){
+		// 	d3.select(this)
+		// 		.transition()
+		// 		.duration(500)
+		// 		.style("fill","yellow");
+		// })
+		// .on("mouseout",function(d){
+		// 	d3.select(this)
+		// 		.transition()
+		// 		.duration(500)
+		// 		.style("fill", function(d) { 
+		// 			return (d.color ? d.color: "#aaa");
+		// 		});
+		// });
+
+	var teams = svg.selectAll('.team')
+				   .style("opacity","0.15")
+				   .on("mouseover",function(d){
+				   		d3.select(this)
+				   		  .transition()
+				   		  .duration(300)
+				   		  .style("opacity",0.5)
+				   })
+				   .on("mouseout",function(d){
+				   		d3.select(this)
+				   		  .transition()
+				   		  .duration(300)
+				   		  .style("opacity",0.15)
+				   });
+
+	var groups = svg.selectAll(".group")
+					.on("mouseover",function(d){
+						console.log('123');
+						d3.select(this).style("opacity",0.3)
+					})
 
 				  
 	arcs.append("text")  
@@ -83,7 +122,7 @@ d3.json("city_tree.json", function(error, root) {
 				//其他的元素，既平移也旋转
 				var r = 0;
 				var dgr = (d.x + d.dx/2)/ Math.PI*180;
-				console.log(dgr,d.x);
+				//console.log(dgr,d.x);
 				// if( (d.x+d.dx/2)/Math.PI*180 < 180 )  // 0 - 180 度以内的
 				// 	r = 180 * ((d.x + d.dx / 2 - Math.PI / 2) / Math.PI);
 				// else  // 180 - 360 度以内的
@@ -102,27 +141,27 @@ d3.json("city_tree.json", function(error, root) {
 		}) 
 		.text(function(d) { return d.name; });
 
-	arcs.append("image")
-		.attr("width", 20)
-		.attr("height", 20)
-		.attr("opacity",1)
-		.attr("transform",function(d,i){
-			if (i == 0)
-				return "translate(" + 0 + ")";
+	// arcs.append("image")
+	// 	.attr("width", 20)
+	// 	.attr("height", 20)
+	// 	.attr("opacity",1)
+	// 	.attr("transform",function(d,i){
+	// 		if (i == 0)
+	// 			return "translate(" + 0 + ")";
 
-			var r = 0;
-			var dgr = (d.x + d.dx/2)/ Math.PI*180;
-			if (dgr > 90 && dgr <= 270) 
-				r = dgr - 180;
-			else
-				r = dgr;
+	// 		var r = 0;
+	// 		var dgr = (d.x + d.dx/2)/ Math.PI*180;
+	// 		if (dgr > 90 && dgr <= 270) 
+	// 			r = dgr - 180;
+	// 		else
+	// 			r = dgr;
 
-			return "translate(" + arc.centroid(d) + ")" +
-				   "rotate(" + r + ")";
-		})
-		.attr("xlink:href",function(d){
-			return (d.img ? d.img : "http://www.oneapm.com/logo.png")
-		});
+	// 		return "translate(" + arc.centroid(d) + ")" +
+	// 			   "rotate(" + r + ")";
+	// 	})
+	// 	.attr("xlink:href",function(d){
+	// 		return (d.img ? d.img : "http://www.oneapm.com/logo.png")
+	// 	});
 
 
   
