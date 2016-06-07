@@ -3,171 +3,199 @@
 	"children": 
 		[
 			{
-				"name": "group A",
-				"className": "group groupA",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "Albania",
-						"className": "team groupA",
-						"color": "rgb(24, 179, 154)"
-					},
-					{
-						"name": "France",
-						"className": "team groupA",
-						"color": "rgb(24, 179, 154)"
-					},
-					{
-						"name": "Romania",
-						"className": "team groupA",
-						"color": "rgb(24, 179, 154)"
-					},
-					{	"name": "Switzerland",
-						"className": "team groupA",
-						"color": "rgb(24, 179, 154)"
-					}
-				]
+				"name": "groupA-color",
+				"color": "rgb(24, 179, 154)",
+				"children": [
+				{
+					"name": "group A",
+					"className": "group groupA",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "Albania",
+							"className": "team groupA",
+							"color": "rgb(24, 179, 154)"
+						},
+						{
+							"name": "France",
+							"className": "team groupA",
+							"color": "rgb(24, 179, 154)"
+						},
+						{
+							"name": "Romania",
+							"className": "team groupA",
+							"color": "rgb(24, 179, 154)"
+						},
+						{	"name": "Switzerland",
+							"className": "team groupA",
+							"color": "rgb(24, 179, 154)"
+						}
+					]
+				}]
 			},
 			{
-				"name": "group B",
-				"className": "group groupB",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "England",
-						"className": "team groupB",
-						"color": "rgb(68, 180, 117)"
-					},
-					{
-						"name": "Russia",
-						"className": "team groupB",
-						"color": "rgb(68, 180, 117)"
-					},
-					{
-						"name": "Slovakia",
-						"className": "team groupB",
-						"color": "rgb(68, 180, 117)"
-					},
-					{
-						"name": "Wales",
-						"className": "team groupB",
-						"color": "rgb(68, 180, 117)"
-					}
-				]
+
+				"name": "groupB-color",
+				"color": "rgb(68, 180, 117)",
+				"children": [{
+
+					"name": "group B",
+					"className": "group groupB",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "England",
+							"className": "team groupB",
+							"color": "rgb(68, 180, 117)"
+						},
+						{
+							"name": "Russia",
+							"className": "team groupB",
+							"color": "rgb(68, 180, 117)"
+						},
+						{
+							"name": "Slovakia",
+							"className": "team groupB",
+							"color": "rgb(68, 180, 117)"
+						},
+						{
+							"name": "Wales",
+							"className": "team groupB",
+							"color": "rgb(68, 180, 117)"
+						}
+					]
+				}]
 			},
 			{
-				"name": "group C",
-				"className": "group groupC",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "Germany",
-						"className": "team groupC",
-						"color": "rgb(50, 152, 207)"
-					},
-					{
-						"name": "Northern Ireland",
-						"className": "team groupC",
-						"color": "rgb(50, 152, 207)"
-					},
-					{
-						"name": "Poland",
-						"className": "team groupC",
-						"color": "rgb(50, 152, 207)"
-					},
-					{
-						"name": "Ukraine",
-						"className": "team groupC",
-						"color": "rgb(50, 152, 207)"
-					}
-				]
+				"name": "groupC-color",
+				"color": "rgb(50, 152, 207)",
+				"children": [{
+					"name": "group C",
+					"className": "group groupC",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "Germany",
+							"className": "team groupC",
+							"color": "rgb(50, 152, 207)"
+						},
+						{
+							"name": "Northern Ireland",
+							"className": "team groupC",
+							"color": "rgb(50, 152, 207)"
+						},
+						{
+							"name": "Poland",
+							"className": "team groupC",
+							"color": "rgb(50, 152, 207)"
+						},
+						{
+							"name": "Ukraine",
+							"className": "team groupC",
+							"color": "rgb(50, 152, 207)"
+						}
+					]
+				}]
 			},
 			{
-				"name": "group D",
-				"className": "group groupD",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "Croatia",
-						"className": "team groupD",
-						"color": "rgb(145, 91, 157)"
-					},
-					{
-						"name": "Czech Republic",
-						"className": "team groupD",
-						"color": "rgb(145, 91, 157)"
-					},
-					{
-						"name": "Spain",
-						"className": "team groupD",
-						"color": "rgb(145, 91, 157)"
-					},
-					{
-						"name": "Turkey",
-						"className": "team groupD",
-						"color": "rgb(145, 91, 157)"
-					}
-				]
+				"name": "groupD-color",
+				"color": "rgb(145, 91, 157)",
+				"children": [{
+					"name": "group D",
+					"className": "group groupD",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "Croatia",
+							"className": "team groupD",
+							"color": "rgb(145, 91, 157)"
+						},
+						{
+							"name": "Czech Republic",
+							"className": "team groupD",
+							"color": "rgb(145, 91, 157)"
+						},
+						{
+							"name": "Spain",
+							"className": "team groupD",
+							"color": "rgb(145, 91, 157)"
+						},
+						{
+							"name": "Turkey",
+							"className": "team groupD",
+							"color": "rgb(145, 91, 157)"
+						}
+					]
+				}]
 			},
 			{
-				"name": "group E",
-				"className": "group groupE",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "Belgium",
-						"className": "team groupE",
-						"color": "rgb(253, 221, 3)"
-					},
-					{
-						"name": "Italy",
-						"className": "team groupE",
-						"color": "rgb(253, 221, 3)"
-					},
-					{
-						"name": "Republic of Ireland",
-						"className": "team groupE",
-						"color": "rgb(253, 221, 3)"
-					},
-					{
-						"name": "Sweden",
-						"className": "team groupE",
-						"color": "rgb(253, 221, 3)"
-					}
-				]
+
+				"name": "groupE-color",
+				"color": "rgb(253, 221, 3)",
+				"children": [{
+					"name": "group E",
+					"className": "group groupE",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "Belgium",
+							"className": "team groupE",
+							"color": "rgb(253, 221, 3)"
+						},
+						{
+							"name": "Italy",
+							"className": "team groupE",
+							"color": "rgb(253, 221, 3)"
+						},
+						{
+							"name": "Republic of Ireland",
+							"className": "team groupE",
+							"color": "rgb(253, 221, 3)"
+						},
+						{
+							"name": "Sweden",
+							"className": "team groupE",
+							"color": "rgb(253, 221, 3)"
+						}
+					]
+				}]
 			},
 			{
-				"name": "group F",
-				"className": "group groupF",
-				"color": "#fff",
-				"children": 
-				[
-					{
-						"name": "Austria",
-						"className": "team groupE",
-						"color": "rgb(232, 123, 53)"
-					},
-					{
-						"name": "Hungary",
-						"className": "team groupE",
-						"color": "rgb(232, 123, 53)"
-					},
-					{
-						"name": "Iceland",
-						"className": "team groupE",
-						"color": "rgb(232, 123, 53)"
-					},
-					{
-						"name": "Portugal",
-						"className": "team groupE",
-						"color": "rgb(232, 123, 53)"
-					}
-				]
+				"name": "groupF-color",
+				"color": "rgb(232, 123, 53)",
+				"children":[{
+					"name": "group F",
+					"className": "group groupF",
+					"color": "#fff",
+					"children": 
+					[
+						{
+							"name": "Austria",
+							"className": "team groupF",
+							"color": "rgb(232, 123, 53)"
+						},
+						{
+							"name": "Hungary",
+							"className": "team groupF",
+							"color": "rgb(232, 123, 53)"
+						},
+						{
+							"name": "Iceland",
+							"className": "team groupF",
+							"color": "rgb(232, 123, 53)"
+						},
+						{
+							"name": "Portugal",
+							"className": "team groupF",
+							"color": "rgb(232, 123, 53)"
+						}
+					]
+				}]
 			}
 		]
 }

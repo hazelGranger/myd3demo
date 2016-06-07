@@ -11,7 +11,8 @@
 	}
 </style>
 <body>
-<script src="/d3.v3.min.js"></script>
+<script src="d3.v3.min.js"></script>
+<script src="jquery-2.2.4.min.js"></script>
 <script>
 
 var width = 450,
@@ -48,7 +49,7 @@ d3.json("eufa.json", function(error, root) {
 	var links = partition.links(nodes);
 
 
-	console.log(nodes);
+	//console.log(nodes);
 	//console.log(svg.selectAll("g"),"1");
 	var arcs = svg.selectAll("g")
 				  .data(nodes)
@@ -57,36 +58,22 @@ d3.json("eufa.json", function(error, root) {
 			return (d.className ? d.className: i);
 		});
 
-	// var groups = svg.selectAll("g")
-	// 				.data(groupNodes)
-	// 				.enter().append("g")
-	// 				.attr("class",function(d){
-	// 					return ".group-team ";
-	// 				});
-
-	// var team = groups.append("g")
-	// 				 .attr()
-
 	
 	arcs.append("path")
-		.attr("display", function(d) {console.log(d.depth); return d.depth ? null : "none"; }) // hide inner ring
+		.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
 		.style("stroke", "rgb(202, 202, 202)")
 		.style("fill", function(d) { return (d.color ? d.color: "#aaa"); });
-		// .on("mouseover",function(d){
-		// 	d3.select(this)
-		// 		.transition()
-		// 		.duration(500)
-		// 		.style("fill","yellow");
-		// })
-		// .on("mouseout",function(d){
-		// 	d3.select(this)
-		// 		.transition()
-		// 		.duration(500)
-		// 		.style("fill", function(d) { 
-		// 			return (d.color ? d.color: "#aaa");
-		// 		});
-		// });
+
+
+	var grouptype = ["A","B","C","D","E","F"];
+
+	var groupArray = [];
+
+	for (var i = 0; i < grouptype.length; i++) {
+		var teamCollection = svg.selectAll(".team.group" + grouptype[i]);
+		//svg.select(".group.group" + grouptype[i]).append(teamCollection);
+	}
 
 	var teams = svg.selectAll('.team')
 				   .style("opacity","0.15")
@@ -127,12 +114,6 @@ d3.json("eufa.json", function(error, root) {
 				//其他的元素，既平移也旋转
 				var r = 0;
 				var dgr = (d.x + d.dx/2)/ Math.PI*180;
-				//console.log(dgr,d.x);
-				// if( (d.x+d.dx/2)/Math.PI*180 < 180 )  // 0 - 180 度以内的
-				// 	r = 180 * ((d.x + d.dx / 2 - Math.PI / 2) / Math.PI);
-				// else  // 180 - 360 度以内的
-				// 	r = 180 * ((d.x + d.dx / 2 + Math.PI / 2) / Math.PI);
-
 
 				if (  dgr >90 && dgr <= 270 )
 					r = dgr - 180;
@@ -168,8 +149,24 @@ d3.json("eufa.json", function(error, root) {
 	// 		return (d.img ? d.img : "http://www.oneapm.com/logo.png")
 	// 	});
 
+	$(document).ready(function(){
+		var groupA = $('.team.groupA');
+		var groupB = $('.team.groupB');
+		var groupC = $('.team.groupC');
+		var groupD = $('.team.groupD');
+		var groupE = $('.team.groupE');
+		var groupF = $('.team.groupF');
 
-  
+		$('.group.groupA').append(groupA);
+		$('.group.groupB').append(groupB);
+		$('.group.groupC').append(groupC);
+		$('.group.groupD').append(groupD);
+		$('.group.groupE').append(groupE);
+		$('.group.groupF').append(groupF);
+		
+	});
+
+
 });
 
 </script>
