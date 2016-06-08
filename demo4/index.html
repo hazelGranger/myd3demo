@@ -9,8 +9,10 @@
 	body{
 		background-color: #1E1E1E;
 	}
+
 </style>
 <body>
+<a href="http://dataworldcup.eurosport.com/#!/compare" target="link">link</a>
 <script src="d3.v3.min.js"></script>
 <script src="jquery-2.2.4.min.js"></script>
 <script>
@@ -28,21 +30,33 @@ var svg = d3.select("body").append("svg")
 var partition = d3.layout.partition()
 				.sort(null)
 				.size([2 * Math.PI, radius * radius])
-				.value(function(d) { return 1; });
+				.value(function(d) { return d.depth; });
 
 				
 var arc = d3.svg.arc()
 			.startAngle(function(d) { return d.x; })
-			.endAngle(function(d) { return d.x + d.dx; })
-			.innerRadius(function(d) { return Math.sqrt(d.y); })
-			.outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
+			.endAngle(function(d) {return d.x + d.dx; })
+			//.innerRadius(function(d) {console.log(d.y);return Math.sqrt(d.y); })
+			.innerRadius(function(d){
+				if (d.depth == 2 || d.depth == 3)
+					return Math.sqrt(d.y - d.dy*11/12);
+				else
+					return  Math.sqrt(d.y);
+			})
+			//.outerRadius(function(d) {console.log(d.dy); return Math.sqrt(d.y + d.dy); });
+			.outerRadius(function(d){
+				if (d.depth == 1 || d.depth == 2) 
+					return Math.sqrt(d.y + d.dy/12);
+				else
+					return Math.sqrt(d.y + d.dy);
+			});
 
 
 d3.json("eufa.json", function(error, root) {
 
 	if(error)
 		console.log(error);
-	console.log(root);
+	//console.log(root);
 
 	var nodes = partition.nodes(root);
 
@@ -62,8 +76,26 @@ d3.json("eufa.json", function(error, root) {
 	arcs.append("path")
 		.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
-		.style("stroke", "rgb(202, 202, 202)")
-		.style("fill", function(d) { return (d.color ? d.color: "#aaa"); });
+		.style("stroke", function(d){
+			return d.depth == 1 ? null : "rgb(202, 202, 202)";
+		})
+		.style("fill", function(d) { return (d.color ? d.color: "#aaa"); })
+		.attr("class", function(d){ return (d.depth == 3? "teampath":"");});
+
+	var teampath = svg.selectAll(".teampath")
+					  .style("opacity",0.15)
+						.on("mouseover",function(d){
+					   		d3.select(this)
+					   		  .transition()
+					   		  .duration(300)
+					   		  .style("opacity",0.5)
+					   })
+					   .on("mouseout",function(d){
+					   		d3.select(this)
+					   		  .transition()
+					   		  .duration(300)
+					   		  .style("opacity",0.15)
+					   });
 
 
 	var grouptype = ["A","B","C","D","E","F"];
@@ -75,20 +107,19 @@ d3.json("eufa.json", function(error, root) {
 		//svg.select(".group.group" + grouptype[i]).append(teamCollection);
 	}
 
-	var teams = svg.selectAll('.team')
-				   .style("opacity","0.15")
-				   .on("mouseover",function(d){
-				   		d3.select(this)
-				   		  .transition()
-				   		  .duration(300)
-				   		  .style("opacity",0.5)
-				   })
-				   .on("mouseout",function(d){
-				   		d3.select(this)
-				   		  .transition()
-				   		  .duration(300)
-				   		  .style("opacity",0.15)
-				   });
+	// var teams = svg.selectAll('.team')
+	// 			   .on("mouseover",function(d){
+	// 			   		d3.select(this)
+	// 			   		  .transition()
+	// 			   		  .duration(300)
+	// 			   		  .style("opacity",0.5)
+	// 			   })
+	// 			   .on("mouseout",function(d){
+	// 			   		d3.select(this)
+	// 			   		  .transition()
+	// 			   		  .duration(300)
+	// 			   		  .style("opacity",0.15)
+	// 			   });
 
 	var groups = svg.selectAll(".group")
 					.on("mouseover",function(d){
@@ -99,7 +130,11 @@ d3.json("eufa.json", function(error, root) {
 						  .style("opacity",function(){
 						  	return (this === hoverGroup)? 1 : 0.3;
 						  })
-					})
+					}).on("mouseout",function(){
+						d3.selectAll(".group")
+						  .transition()
+						  .style("opacity",1)
+					});
 
 				  
 	arcs.append("text")  
@@ -124,30 +159,30 @@ d3.json("eufa.json", function(error, root) {
 				return  "translate(" + arc.centroid(d) + ")" +
 						"rotate(" + r + ")";
 
-		}) 
-		.text(function(d) { return d.name; });
+		})
+		.text(function(d) { return d.text ? d.text : ""; });
 
-	// arcs.append("image")
-	// 	.attr("width", 20)
-	// 	.attr("height", 20)
-	// 	.attr("opacity",1)
-	// 	.attr("transform",function(d,i){
-	// 		if (i == 0)
-	// 			return "translate(" + 0 + ")";
+	arcs.append("image")
+		.attr("width", 20)
+		.attr("height", 20)
+		.attr("opacity",1)
+		.attr("transform",function(d,i){
+			if (i == 0)
+				return "translate(" + 0 + ")";
 
-	// 		var r = 0;
-	// 		var dgr = (d.x + d.dx/2)/ Math.PI*180;
-	// 		if (dgr > 90 && dgr <= 270) 
-	// 			r = dgr - 180;
-	// 		else
-	// 			r = dgr;
+			var r = 0;
+			var dgr = (d.x + d.dx/2)/ Math.PI*180;
+			if (dgr > 90 && dgr <= 270) 
+				r = dgr - 180;
+			else
+				r = dgr;
 
-	// 		return "translate(" + arc.centroid(d) + ")" +
-	// 			   "rotate(" + r + ")";
-	// 	})
-	// 	.attr("xlink:href",function(d){
-	// 		return (d.img ? d.img : "http://www.oneapm.com/logo.png")
-	// 	});
+			return "translate(" + arc.centroid(d) + ")" +
+				   "rotate(" + r + ")";
+		})
+		.attr("xlink:href",function(d){
+			return (d.img ? d.img : null)
+		});
 
 	$(document).ready(function(){
 		var groupA = $('.team.groupA');

@@ -10,26 +10,31 @@
 					"name": "group A",
 					"className": "group groupA",
 					"color": "#fff",
+					"text": "group A",
 					"children": 
 					[
 						{
 							"name": "Albania",
 							"className": "team groupA",
-							"color": "rgb(24, 179, 154)"
+							"color": "rgb(24, 179, 154)",
+							"img": "flags/albania.png"
 						},
 						{
 							"name": "France",
 							"className": "team groupA",
-							"color": "rgb(24, 179, 154)"
+							"color": "rgb(24, 179, 154)",
+							"img": "flags/france.png"
 						},
 						{
 							"name": "Romania",
 							"className": "team groupA",
-							"color": "rgb(24, 179, 154)"
+							"color": "rgb(24, 179, 154)",
+							"img": "flags/romania.png"
 						},
 						{	"name": "Switzerland",
 							"className": "team groupA",
-							"color": "rgb(24, 179, 154)"
+							"color": "rgb(24, 179, 154)",
+							"img": "flags/switzerland.png"
 						}
 					]
 				}]
@@ -43,27 +48,32 @@
 					"name": "group B",
 					"className": "group groupB",
 					"color": "#fff",
+					"text": "group B",
 					"children": 
 					[
 						{
 							"name": "England",
 							"className": "team groupB",
-							"color": "rgb(68, 180, 117)"
+							"color": "rgb(68, 180, 117)",
+							"img": "flags/england.png"
 						},
 						{
 							"name": "Russia",
 							"className": "team groupB",
-							"color": "rgb(68, 180, 117)"
+							"color": "rgb(68, 180, 117)",
+							"img": "flags/russia.png"
 						},
 						{
 							"name": "Slovakia",
 							"className": "team groupB",
-							"color": "rgb(68, 180, 117)"
+							"color": "rgb(68, 180, 117)",
+							"img": "flags/slovakia.png"
 						},
 						{
 							"name": "Wales",
 							"className": "team groupB",
-							"color": "rgb(68, 180, 117)"
+							"color": "rgb(68, 180, 117)",
+							"img": "flags/wales.png"
 						}
 					]
 				}]
@@ -75,27 +85,32 @@
 					"name": "group C",
 					"className": "group groupC",
 					"color": "#fff",
+					"text": "group C",
 					"children": 
 					[
 						{
 							"name": "Germany",
 							"className": "team groupC",
-							"color": "rgb(50, 152, 207)"
+							"color": "rgb(50, 152, 207)",
+							"img": "flags/germany.png"
 						},
 						{
 							"name": "Northern Ireland",
 							"className": "team groupC",
-							"color": "rgb(50, 152, 207)"
+							"color": "rgb(50, 152, 207)",
+							"img": "flags/northernireland.png"
 						},
 						{
 							"name": "Poland",
 							"className": "team groupC",
-							"color": "rgb(50, 152, 207)"
+							"color": "rgb(50, 152, 207)",
+							"img": "flags/poland.png"
 						},
 						{
 							"name": "Ukraine",
 							"className": "team groupC",
-							"color": "rgb(50, 152, 207)"
+							"color": "rgb(50, 152, 207)",
+							"img": "flags/ukraine.png"
 						}
 					]
 				}]
@@ -107,27 +122,32 @@
 					"name": "group D",
 					"className": "group groupD",
 					"color": "#fff",
+					"text": "group D",
 					"children": 
 					[
 						{
 							"name": "Croatia",
 							"className": "team groupD",
-							"color": "rgb(145, 91, 157)"
+							"color": "rgb(145, 91, 157)",
+							"img": "flags/croatia.png"
 						},
 						{
 							"name": "Czech Republic",
 							"className": "team groupD",
-							"color": "rgb(145, 91, 157)"
+							"color": "rgb(145, 91, 157)",
+							"img": "flags/czech.png"
 						},
 						{
 							"name": "Spain",
 							"className": "team groupD",
-							"color": "rgb(145, 91, 157)"
+							"color": "rgb(145, 91, 157)",
+							"img": "flags/spain.png"
 						},
 						{
 							"name": "Turkey",
 							"className": "team groupD",
-							"color": "rgb(145, 91, 157)"
+							"color": "rgb(145, 91, 157)",
+							"img": "flags/turkey.png"
 						}
 					]
 				}]
@@ -140,27 +160,32 @@
 					"name": "group E",
 					"className": "group groupE",
 					"color": "#fff",
+					"text": "group E",
 					"children": 
 					[
 						{
 							"name": "Belgium",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)"
+							"color": "rgb(253, 221, 3)",
+							"img": "flags/belgium.png"
 						},
 						{
 							"name": "Italy",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)"
+							"color": "rgb(253, 221, 3)",
+							"img": "flags/italy.png"
 						},
 						{
 							"name": "Republic of Ireland",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)"
+							"color": "rgb(253, 221, 3)",
+							"img": "flags/ireland.png"
 						},
 						{
 							"name": "Sweden",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)"
+							"color": "rgb(253, 221, 3)",
+							"img": "flags/sweden.png"
 						}
 					]
 				}]
@@ -172,27 +197,32 @@
 					"name": "group F",
 					"className": "group groupF",
 					"color": "#fff",
+					"text": "group F",
 					"children": 
 					[
 						{
 							"name": "Austria",
 							"className": "team groupF",
-							"color": "rgb(232, 123, 53)"
+							"color": "rgb(232, 123, 53)",
+							"img": "flags/austria.png"
 						},
 						{
 							"name": "Hungary",
 							"className": "team groupF",
-							"color": "rgb(232, 123, 53)"
+							"color": "rgb(232, 123, 53)",
+							"img": "flags/hungary.png"
 						},
 						{
 							"name": "Iceland",
 							"className": "team groupF",
-							"color": "rgb(232, 123, 53)"
+							"color": "rgb(232, 123, 53)",
+							"img": "flags/iceland.png"
 						},
 						{
 							"name": "Portugal",
 							"className": "team groupF",
-							"color": "rgb(232, 123, 53)"
+							"color": "rgb(232, 123, 53)",
+							"img": "flags/portugal.png"
 						}
 					]
 				}]
