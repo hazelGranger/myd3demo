@@ -9,6 +9,16 @@
 	body{
 		background-color: #1E1E1E;
 	}
+	svg .team{
+		cursor: pointer;
+	}
+	svg .team path{
+		opacity: 0.15;
+		transition: opacity 0.5s ease-in-out;
+	}
+	svg .team:hover path{
+		opacity: 0.5;
+	}
 
 </style>
 <body>
@@ -19,7 +29,9 @@
 
 var width = 450,
     height = 450,
-	radius =  Math.min(width, height) / 2 ;
+	radius =  Math.min(width, height) / 2 ,
+	imgwidth = 20,
+	imgheight =20;
 	
 var svg = d3.select("body").append("svg")
 			.attr("width", width)
@@ -74,7 +86,7 @@ d3.json("eufa.json", function(error, root) {
 
 	
 	arcs.append("path")
-		.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
+		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
 		.style("stroke", function(d){
 			return d.depth == 1 ? null : "rgb(202, 202, 202)";
@@ -82,44 +94,45 @@ d3.json("eufa.json", function(error, root) {
 		.style("fill", function(d) { return (d.color ? d.color: "#aaa"); })
 		.attr("class", function(d){ return (d.depth == 3? "teampath":"");});
 
-	var teampath = svg.selectAll(".teampath")
-					  .style("opacity",0.15)
-						.on("mouseover",function(d){
-					   		d3.select(this)
-					   		  .transition()
-					   		  .duration(300)
-					   		  .style("opacity",0.5)
-					   })
-					   .on("mouseout",function(d){
-					   		d3.select(this)
-					   		  .transition()
-					   		  .duration(300)
-					   		  .style("opacity",0.15)
-					   });
+	// var teampath = svg.selectAll(".teampath")
+	// 				  .style("opacity",0.15)
+	// 					.on("mouseenter",function(d){
+	// 				   		d3.select(this)
+	// 				   		  .transition()
+	// 				   		  .duration(300)
+	// 				   		  .style("opacity",0.5)
+	// 				   })
+	// 				   .on("mouseout",function(d){
+	// 				   		d3.select(this)
+	// 				   		  .transition()
+	// 				   		  .duration(300)
+	// 				   		  .style("opacity",0.15)
+	// 				   });
+
+	// svg.selectAll(".team")
+	//   	.style("opacity",0.15)
+	// 	.on("mouseover",function(d){
+	//    		d3.select(this)
+	//    		  .transition()
+	//    		  .duration(300)
+	//    		  .style("opacity",0.5)
+	//    })
+	//    .on("mouseleave",function(d){
+	//    		d3.select(this)
+	//    		  .transition()
+	//    		  .duration(300)
+	//    		  .style("opacity",0.15)
+	//    });
 
 
 	var grouptype = ["A","B","C","D","E","F"];
 
 	var groupArray = [];
 
-	for (var i = 0; i < grouptype.length; i++) {
-		var teamCollection = svg.selectAll(".team.group" + grouptype[i]);
-		//svg.select(".group.group" + grouptype[i]).append(teamCollection);
-	}
-
-	// var teams = svg.selectAll('.team')
-	// 			   .on("mouseover",function(d){
-	// 			   		d3.select(this)
-	// 			   		  .transition()
-	// 			   		  .duration(300)
-	// 			   		  .style("opacity",0.5)
-	// 			   })
-	// 			   .on("mouseout",function(d){
-	// 			   		d3.select(this)
-	// 			   		  .transition()
-	// 			   		  .duration(300)
-	// 			   		  .style("opacity",0.15)
-	// 			   });
+	// for (var i = 0; i < grouptype.length; i++) {
+	// 	var teamCollection = svg.selectAll(".team.group" + grouptype[i]);
+	// 	//svg.select(".group.group" + grouptype[i]).append(teamCollection);
+	// }
 
 	var groups = svg.selectAll(".group")
 					.on("mouseover",function(d){
@@ -163,26 +176,54 @@ d3.json("eufa.json", function(error, root) {
 		.text(function(d) { return d.text ? d.text : ""; });
 
 	arcs.append("image")
-		.attr("width", 20)
-		.attr("height", 20)
+		.attr("width", imgwidth)
+		.attr("height", imgheight)
 		.attr("opacity",1)
 		.attr("transform",function(d,i){
 			if (i == 0)
 				return "translate(" + 0 + ")";
+			var imgtx = arc.centroid(d)[0] - imgwidth/2;
+			var imgty = arc.centroid(d)[1] - imgheight/2;
 
-			var r = 0;
-			var dgr = (d.x + d.dx/2)/ Math.PI*180;
-			if (dgr > 90 && dgr <= 270) 
-				r = dgr - 180;
-			else
-				r = dgr;
-
-			return "translate(" + arc.centroid(d) + ")" +
-				   "rotate(" + r + ")";
+			return "translate(" + imgtx + "," + imgty + ")" +
+				   "rotate(" + 0 + ")";
 		})
 		.attr("xlink:href",function(d){
 			return (d.img ? d.img : null)
 		});
+
+	var innergroup = svg.select(".inner")
+						.append("circle")
+						.attr("r", 95)
+						.style("fill","#fede00")
+						.style("stroke","#fff")
+						.style("stroke-width","3px");
+
+	var innertext = d3.select(".inner").append("text")
+					  .style("font-size", "14px")
+				  	  .style("font-family", "Microsoft Yahei")
+		              .attr("text-anchor","middle")
+		              .style("fill","#333")
+		              .attr("transform","translate(-30, -40)");
+
+	svg.selectAll(".team").on("click",function(d){
+		$('.inner text').empty();
+		//console.log(d);
+		var thisteam = d;
+		var teamtextArr = thisteam.innertext.split("|");
+		innertext.selectAll("tspan")
+				 .data(teamtextArr)
+				 .enter()
+				 .append("tspan")
+				 .attr("x",30)
+				 .attr("dy","1.4em")
+				 .text(function(d) { return d;})
+				 .attr
+				  
+	});
+						
+
+
 
 	$(document).ready(function(){
 		var groupA = $('.team.groupA');

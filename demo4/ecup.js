@@ -443,7 +443,7 @@ function() {
                         d3.select(this).select(".participations").attr("fill", r.black).attr("opacity", .8)
                     }
                     ).on("mouseout", function() {
-                        return k.attr("opacity", 1),·
+                        return k.attr("opacity", 1),
                         d3.selectAll(".group-team path").attr("opacity", .15).attr("fill", function(a) {
                             return s[f.findIndex(t, function(b) {
                                 return a.poule === b.key
