@@ -20,27 +20,35 @@
 							"className": "team groupA",
 							"color": "rgb(24, 179, 154)",
 							"img": "flags/albania.png",
-							"innertext": "最佳战绩：|本届第一次出现|教练：|狄拜西"
+							"innertext": "最佳战绩：|本届第一次出现|教练：|狄拜西",
+							"n": "0",
+							"abr": "ALB"
 						},
 						{
 							"name": "France",
 							"className": "team groupA",
 							"color": "rgb(24, 179, 154)",
 							"img": "flags/france.png",
-							"innertext": "最佳战绩：|(1984, 2000) 冠军|教练：|迪迪埃·德尚"
+							"innertext": "最佳战绩：|(1984, 2000) 冠军|教练：|迪迪埃·德尚",
+							"n": "8",
+							"abr": "FRA"
 						},
 						{
 							"name": "Romania",
 							"className": "team groupA",
 							"color": "rgb(24, 179, 154)",
 							"img": "flags/romania.png",
-							"innertext": "最佳战绩：|2000 四分之一决赛|教练：|伊奧丹尼斯古"
+							"innertext": "最佳战绩：|2000 四分之一决赛|教练：|伊奧丹尼斯古",
+							"n": "4",
+							"abr": "ROU"
 						},
 						{	"name": "Switzerland",
 							"className": "team groupA",
 							"color": "rgb(24, 179, 154)",
 							"img": "flags/switzerland.png",
-							"innertext": "最佳战绩：|(1996,2004,2008)小组赛|教练：|弗拉基米尔·佩特科维奇"
+							"innertext": "最佳战绩：|(1996,2004,2008)小组赛|教练：|弗拉基米尔·佩特科维奇",
+							"n": "3",
+							"abr": "SUI"
 						}
 					]
 				}]
@@ -62,28 +70,36 @@
 							"className": "team groupB",
 							"color": "rgb(68, 180, 117)",
 							"img": "flags/england.png",
-							"innertext": "最佳战绩：|(1968,1996) 半决赛|教练：|罗伊·霍奇森"
+							"innertext": "最佳战绩：|(1968,1996) 半决赛|教练：|罗伊·霍奇森",
+							"n": "8",
+							"abr": "ENG"
 						},
 						{
 							"name": "Russia",
 							"className": "team groupB",
 							"color": "rgb(68, 180, 117)",
 							"img": "flags/russia.png",
-							"innertext": "最佳战绩：|1960(前苏联) 冠军|教练：|斯卢茨基"
+							"innertext": "最佳战绩：|1960(前苏联) 冠军|教练：|斯卢茨基",
+							"n": "10",
+							"abr": "RUS"
 						},
 						{
 							"name": "Slovakia",
 							"className": "team groupB",
 							"color": "rgb(68, 180, 117)",
 							"img": "flags/slovakia.png",
-							"innertext": "最佳战绩：|1976(捷克斯洛伐克) 冠军|教练：|科扎克"
+							"innertext": "最佳战绩：|1976(捷克斯洛伐克) 冠军|教练：|科扎克",
+							"n": "1",
+							"abr": "SVK"
 						},
 						{
 							"name": "Wales",
 							"className": "team groupB",
 							"color": "rgb(68, 180, 117)",
 							"img": "flags/wales.png",
-							"innertext": "最佳战绩：|本届第一次出现|教练：|克里斯·科尔曼"
+							"innertext": "最佳战绩：|本届第一次出现|教练：|克里斯·科尔曼",
+							"n": "0",
+							"abr": "WAL"
 						}
 					]
 				}]
@@ -103,28 +119,36 @@
 							"className": "team groupC",
 							"color": "rgb(50, 152, 207)",
 							"img": "flags/germany.png",
-							"innertext": "最佳战绩：|(1972,1980(西德), 1996) 冠军|教练：|约阿希姆·勒夫"
+							"innertext": "最佳战绩：|(1972,1980(西德), 1996) 冠军|教练：|约阿希姆·勒夫",
+							"n": "11",
+							"abr": "GER"
 						},
 						{
 							"name": "Northern Ireland",
 							"className": "team groupC",
 							"color": "rgb(50, 152, 207)",
 							"img": "flags/northernireland.png",
-							"innertext": "最佳战绩：|本届第一次出现|教练：|迈克尔·奥尼尔"
+							"innertext": "最佳战绩：|本届第一次出现|教练：|迈克尔·奥尼尔",
+							"n": "0",
+							"abr": "POL"
 						},
 						{
 							"name": "Poland",
 							"className": "team groupC",
 							"color": "rgb(50, 152, 207)",
 							"img": "flags/poland.png",
-							"innertext": "最佳战绩：|2008,2012小组赛|教练：|亚当·纳瓦尔卡"
+							"innertext": "最佳战绩：|2008,2012小组赛|教练：|亚当·纳瓦尔卡",
+							"n": "2",
+							"abr": "NIR"
 						},
 						{
 							"name": "Ukraine",
 							"className": "team groupC",
 							"color": "rgb(50, 152, 207)",
 							"img": "flags/ukraine.png",
-							"innertext": "最佳战绩：|(2012)小组赛|教练：|米哈伊尔·福缅科"
+							"innertext": "最佳战绩：|(2012)小组赛|教练：|米哈伊尔·福缅科",
+							"n": "1",
+							"abr": "UKR"
 						}
 					]
 				}]
@@ -144,28 +168,36 @@
 							"className": "team groupD",
 							"color": "rgb(145, 91, 157)",
 							"img": "flags/croatia.png",
-							"innertext": "最佳战绩：|(1996,2008) 四强|教练：|安特·查契奇"
+							"innertext": "最佳战绩：|(1996,2008) 四强|教练：|安特·查契奇",
+							"n": "4",
+							"abr": "CRO"
 						},
 						{
 							"name": "Czech Republic",
 							"className": "team groupD",
 							"color": "rgb(145, 91, 157)",
 							"img": "flags/czech.png",
-							"innertext": "最佳战绩：|(1976，捷克斯洛伐克) 冠军|教练：|帕维尔·弗尔巴"
+							"innertext": "最佳战绩：|(1976，捷克斯洛伐克) 冠军|教练：|帕维尔·弗尔巴",
+							"n": "8",
+							"abr": "CZE"
 						},
 						{
 							"name": "Spain",
 							"className": "team groupD",
 							"color": "rgb(145, 91, 157)",
 							"img": "flags/spain.png",
-							"innertext": "最佳战绩：|(1964,2008,2012) 冠军|教练：|比森特·德尔·博斯克"
+							"innertext": "最佳战绩：|(1964,2008,2012) 冠军|教练：|比森特·德尔·博斯克",
+							"n": "9",
+							"abr": "ESP"
 						},
 						{
 							"name": "Turkey",
 							"className": "team groupD",
 							"color": "rgb(145, 91, 157)",
 							"img": "flags/turkey.png",
-							"innertext": "最佳战绩：|(2008)半决赛|教练：|法蒂赫·特里姆"
+							"innertext": "最佳战绩：|(2008)半决赛|教练：|法蒂赫·特里姆",
+							"n": "3",
+							"abr": "TUR"
 						}
 					]
 				}]
@@ -173,7 +205,7 @@
 			{
 
 				"name": "groupE-color",
-				"color": "rgb(253, 221, 3)",
+				"color": "rgb(235, 69, 65)",
 				"children": [{
 					"name": "group E",
 					"className": "group groupE",
@@ -184,30 +216,38 @@
 						{
 							"name": "Belgium",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)",
+							"color": "rgb(235, 69, 65)",
 							"img": "flags/belgium.png",
-							"innertext": "最佳战绩：|1908 亚军|教练：|马克·威尔莫茨"
+							"innertext": "最佳战绩：|1908 亚军|教练：|马克·威尔莫茨",
+							"n": "4",
+							"abr": "BEL"
 						},
 						{
 							"name": "Italy",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)",
+							"color": "rgb(235, 69, 65)",
 							"img": "flags/italy.png",
-							"innertext": "最佳战绩：|1968 冠军|教练：|安东尼奧·孔蒂"
+							"innertext": "最佳战绩：|1968 冠军|教练：|安东尼奧·孔蒂",
+							"n": "8",
+							"abr": "ITA"
 						},
 						{
 							"name": "Republic of Ireland",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)",
+							"color": "rgb(235, 69, 65)",
 							"img": "flags/ireland.png",
-							"innertext": "最佳战绩：|1988,2012 小组赛|教练：|马丁·奥尼尔"
+							"innertext": "最佳战绩：|1988,2012 小组赛|教练：|马丁·奥尼尔",
+							"n": "2",
+							"abr": "IRL"
 						},
 						{
 							"name": "Sweden",
 							"className": "team groupE",
-							"color": "rgb(253, 221, 3)",
+							"color": "rgb(235, 69, 65)",
 							"img": "flags/sweden.png",
-							"innertext": "最佳战绩：|1992 半决赛|教练：|哈姆伦"
+							"innertext": "最佳战绩：|1992 半决赛|教练：|哈姆伦",
+							"n": "5",
+							"abr": "SWE"
 						}
 					]
 				}]
@@ -227,28 +267,36 @@
 							"className": "team groupF",
 							"color": "rgb(232, 123, 53)",
 							"img": "flags/austria.png",
-							"innertext": "最佳战绩：|2008年小组赛|教练：|马塞尔·科勒"
+							"innertext": "最佳战绩：|2008年小组赛|教练：|马塞尔·科勒",
+							"n": "1",
+							"abr": "AUT"
 						},
 						{
 							"name": "Hungary",
 							"className": "team groupF",
 							"color": "rgb(232, 123, 53)",
 							"img": "flags/hungary.png",
-							"innertext": "最佳战绩：|(1963) 季军|教练：|贝恩德·斯托尔克"
+							"innertext": "最佳战绩：|(1963) 季军|教练：|贝恩德·斯托尔克",
+							"n": "2",
+							"abr": "HUN"
 						},
 						{
 							"name": "Iceland",
 							"className": "team groupF",
 							"color": "rgb(232, 123, 53)",
 							"img": "flags/iceland.png",
-							"innertext": "最佳战绩：|本届第一次出现|教练：|拉尔斯·拉德贝克/哈尔格里姆松"
+							"innertext": "最佳战绩：|本届第一次出现|教练：|拉尔斯·拉德贝克/哈尔格里姆松",
+							"n": "0",
+							"abr": "ISL"
 						},
 						{
 							"name": "Portugal",
 							"className": "team groupF",
 							"color": "rgb(232, 123, 53)",
 							"img": "flags/portugal.png",
-							"innertext": "最佳战绩：|2004 亚军|教练：|费尔南多·桑托斯"
+							"innertext": "最佳战绩：|2004 亚军|教练：|费尔南多·桑托斯",
+							"n": "6",
+							"abr": "POR"
 						}
 					]
 				}]
