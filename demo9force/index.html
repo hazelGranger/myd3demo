@@ -3,6 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style type="text/css">
+		image{
+			border: 3px solid #000;
+			border-radius: 25px;
+		}
+	</style>
 </head>
 <body>
 	<div id="container"></div>
@@ -10,22 +16,39 @@
 	<script type="text/javascript">
 		var height = 1200;
 		var width = 1200; 
+		var img_width = 50;
+		var img_height = 50;
 
 		var svg = d3.select("#container")
 					.append("svg")
 					.attr("width",width)
 					.attr("height",height);
 
-		var nodes = [{name: "草"},{name: "火"},{name: "水"},{name: "电"},{name: "地"}]
+		var nodes = [{name: "草",img: "/images/demo9/grass.svg"},{name: "火",img: "/images/demo9/fire.svg"},{name: "水",img: "/images/demo9/water.svg"},{name: "电",img: "/images/demo9/electric.svg"},{name: "地",img: "/images/demo9/earth.svg"},{name:"飞行",img: "/images/demo9/fly.svg"}]
 
-		var edges = [{source : 0 , target: 2},{source : 0 , target: 4},{source : 1 , target: 0},{source : 2 , target: 1},{source :2 , target: 4},{source : 3 , target: 2},{source : 4 , target: 1},{source : 4 , target: 3}];
+		var edges = [{source : 0 , target: 2},{source : 0 , target: 4},{source : 1 , target: 0},{source : 2 , target: 1},{source :2 , target: 4},{source : 3 , target: 2},{source : 3 , target: 5},{source : 4 , target: 1},{source : 4 , target: 3},{source : 5 , target: 0}];
+
+		var defs = svg.append("defs");
+		var arrowMarker = defs.append("marker")
+							  .attr("id","arrow")
+							  .attr("markerUnits","strokeWidth")
+							  .attr("markerWidth","12")
+							  .attr("markerHeight","12")
+							  .attr("viewBox","0 0 12 12")
+							  .attr("refX","18")
+							  .attr("refY","6")
+							  .attr("orient","auto")
+		var arrow_path = "M2,2 L10,6 L2,10 L6,6 L2,2";
+		arrowMarker.append("path")
+				   .attr("d",arrow_path)
+				   .attr("fill","#000")
 
 		var force = d3.layout.force()
 					  .nodes(nodes)
 					  .links(edges)
 					  .size([width,height])
-					  .linkDistance(150)
-					  .charge([-400]);
+					  .linkDistance(500)
+					  .charge([1]);
 
 		force.start();
 		console.log(nodes);
@@ -36,20 +59,46 @@
 		     .enter()
 		     .append("line")
 		     .style("stroke","#ccc")
-		     .style("stroke-width",1);
+		     .style("stroke-width",1)
+		     .attr("marker-end","url(#arrow)");
 		 
 		var color = d3.scale.category20();
 		 
 		 //添加节点 
-		var svg_nodes = svg.selectAll("circle")
-		     .data(nodes)
-		     .enter()
-		     .append("circle")
-		     .attr("r",20)
-		     .style("fill",function(d,i){
-		         return color(i);
-		     })
-		     .call(force.drag);  //使得节点能够拖动
+		// var svg_nodes = svg.selectAll("circle")
+		//      .data(nodes)
+		//      .enter()
+		//      .append("circle")
+		//      .attr("r",10)
+		//      .style("fill",function(d,i){
+		//          return color(i);
+		//      })
+		//      .call(force.drag);  //使得节点能够拖动
+
+		var nodes_img = svg.selectAll("image")
+						   .data(nodes)
+						   .enter()
+						   .append("image")
+						   .attr("width",img_width)
+						   .attr("height",img_height)
+						   .attr("xlink:href",function(d){
+                                    return d.img;
+                           })
+                           .on("mouseover",function(d,i){
+                           		svg_edges.style("stroke-width",function(edge){
+                           			if(edge.source === d){
+                           				return 3;
+                           			}
+                           		})
+                           })
+                           .on("mouseout",function(d,i){
+                           		svg_edges.style("stroke-width",function(edge){
+                           			if(edge.source === d){
+                           				return 1;
+                           			}
+                           		})
+                           })
+                           .call(force.drag);
 		 
 		 //添加描述节点的文字
 		var svg_texts = svg.selectAll("text")
@@ -70,10 +119,9 @@
 		        .attr("y1",function(d){ return d.source.y; })
 		        .attr("x2",function(d){ return d.target.x; })
 		        .attr("y2",function(d){ return d.target.y; });
-		 
-		    //更新节点坐标
-		    svg_nodes.attr("cx",function(d){ return d.x; })
-		        .attr("cy",function(d){ return d.y; });
+
+		    nodes_img.attr("x",function(d){ return d.x - img_width/2; });
+		    nodes_img.attr("y",function(d){ return d.y - img_height/2; });
 		 
 		    //更新文字坐标
 		    svg_texts.attr("x", function(d){ return d.x; })
